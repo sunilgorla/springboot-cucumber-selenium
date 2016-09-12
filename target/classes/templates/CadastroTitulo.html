@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Cadastro de Título</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Cucumber+Selenium</a>
+    </div> 
+  </div><!-- /.container-fluid -->
+</nav>
+
+<form action="/titulos" method="POST" class="form-horizontal">
+	<div class="panel panel-dafault">
+		<div class="panel-heading">
+			<h3 class="panel-title">Novo Título</h3>
+		</div>
+		<div class="panel-body">
+			<div class="alert alert-success alert-dismissible" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <span th:text="${mensagem}"></span>
+			</div>
+			<div class="form-group">
+				<label for="descricao" class="col-sm-2 control-label">Descrição</label>
+				<div class="col-sm-4">
+					<input type="text" id="descricao" class="form-control" name="descricao"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="dataVencimento" class="col-sm-2 control-label">Data de Vencimento</label>
+				<div class="col-sm-2">
+					<input type="text" id="dataVencimento" class="form-control" name="dataVencimento" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="valor" class="col-sm-2 control-label">Valor</label>
+				<div class="col-sm-2">
+					<input type="text" id="valor" class="form-control" name="valor"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="status" class="col-sm-2 control-label">Status</label>
+				<div class="col-sm-2">
+					<select class="form-control" name="status">
+						<option value="PENDENTE">Pendente</option>
+						<option value="RECEBIDO" >Resolvido</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</body>
+</html>
